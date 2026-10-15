@@ -1,0 +1,1078 @@
+/* ==========================================================================
+   DANLIO Garage Door Repair — GLOBAL STYLESHEET
+   Every value below was measured from the live site danliogaragedoor.com
+   at a 1920px viewport on 2026-10-14. Nothing here is a design choice.
+
+   MEASURED REFERENCE
+   ------------------------------------------------------------------
+   container ........ 1240px, page gutter 0 10px
+   top bar .......... height 44px, bg #062F63, Inter 16px / 24px, #fff
+   header ........... height 111px, bg #fff, gutter 0 10px
+   logo ............. 274 x 91px
+   nav link ......... Roboto 18px / 500 / UPPERCASE / #000, padding 13px 20px
+   hero ............. height 610px, bg cover center + black overlay @ .5
+   h1 ............... Roboto 76px / 700 / line-height 83.6px / #fff
+   hero subhead ..... Inter 22px / 400 / line-height 33px / #fff
+   hero paragraph ... Inter 18px / 400 / line-height 27px / rgba(255,255,255,.86)
+   h2 ............... Roboto 50px / 600 / line-height 60px
+   card title ....... Roboto 28px / 600 / line-height 33.6px / #000
+   small title ...... Roboto 23px / 600 / line-height 27.6px
+   body text ........ Inter 16px / 24px / #414141
+   button ........... Inter 20px / 500 / UPPERCASE, padding 15px 25px,
+                      radius 3px, bg #D32F2F
+   section padding .. 30px top / 30px bottom (inner container)
+   ========================================================================== */
+
+:root{
+  --navy:#1F3A68;
+  --navy-deep:#062F63;
+  --red:#D32F2F;
+  --ink:#414141;
+  --black:#000;
+  --white:#fff;
+  --line:#E3E8F0;
+  --bg-soft:#F5F7FA;
+
+  --h:'Roboto',sans-serif;        /* headings */
+  --b:'Inter',sans-serif;         /* body + buttons */
+
+  --wrap:1240px;
+  --gutter:10px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--b);
+  font-size:16px;
+  line-height:24px;
+  color:var(--ink);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--navy-deep);text-decoration:none}
+
+/* ---- headings (measured) ---- */
+h1,h2,h3,h4{font-family:var(--h);margin:0 0 20px;color:var(--navy-deep)}
+h1{font-size:76px;font-weight:700;line-height:83.6px;color:var(--white)}
+h2{font-size:50px;font-weight:600;line-height:60px}
+h3{font-size:28px;font-weight:600;line-height:33.6px;color:var(--black)}
+h4{font-size:23px;font-weight:600;line-height:27.6px}
+p{margin:0 0 16px}
+
+/* ---- layout ----
+   MEASURED: the live site puts 10px horizontal padding on the FULL-WIDTH
+   section wrapper, and centres a 1240px inner box inside it. The inner box
+   itself has NO horizontal padding, so content is a true 1240px wide and
+   starts at x=332 on a 1920px viewport. */
+.sec,.badgebar,.ctaband,.topbar,.site-header,.site-footer,.hero{padding-left:var(--gutter);padding-right:var(--gutter)}
+.wrap{max-width:var(--wrap);margin:0 auto;width:100%}
+.sec{padding-top:80px;padding-bottom:80px}
+.sec--tight{padding-top:40px;padding-bottom:80px}
+.sec--btm{padding-top:0;padding-bottom:80px}
+.sec--navy{background:var(--navy);color:var(--white)}
+.sec--navy h2,.sec--navy h3,.sec--navy h4{color:var(--white)}
+.sec--navy p{color:rgba(255,255,255,.86)}
+.sec--deep{background:var(--navy-deep);color:var(--white)}
+.sec--deep h2,.sec--deep h3{color:var(--white)}
+.center{text-align:center}
+.sec-head{margin-bottom:30px}
+.sec-head.center{text-align:center}
+.sec-head p{font-size:18px;line-height:27px}
+.sec--navy .sec-head p{color:rgba(255,255,255,.86)}
+
+/* ---- buttons (measured: Inter 20/500 uppercase, 15px 25px, radius 3px) ---- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--b);font-size:20px;font-weight:500;line-height:20px;
+  text-transform:uppercase;
+  padding:15px 25px;border-radius:3px;border:1px solid transparent;
+  cursor:pointer;transition:.18s ease;text-align:center;
+}
+.btn--call{background:var(--red);color:var(--white);border-color:var(--red)}
+.btn--call:hover{background:#b02222;border-color:#b02222}
+.btn--ghost{background:transparent;color:var(--white);border-color:var(--white)}
+.btn--ghost:hover{background:var(--white);color:var(--navy-deep)}
+.btn--navy{background:var(--navy-deep);color:var(--white);border-color:var(--navy-deep)}
+.btn--navy:hover{background:var(--navy)}
+.btn--block{width:100%}
+
+/* ---- top bar (measured: 44px, #062F63, Inter 16/24) ---- */
+.topbar{background:var(--navy-deep);color:var(--white);display:flex;align-items:center}
+.topbar .wrap{padding:10px 0}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.topbar a,.topbar span{
+  font-family:var(--b);font-size:16px;font-weight:400;line-height:24px;color:var(--white);
+  display:inline-flex;align-items:center;gap:8px;
+}
+
+/* ---- header (measured: 111px, white, logo 274x91) ---- */
+.site-header{background:var(--white);display:flex;align-items:center}
+.site-header .wrap{padding:10px 0}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo img{width:274px;height:91px;object-fit:contain}
+.site-nav ul{display:flex;list-style:none;margin:0;padding:0}
+.site-nav a{
+  font-family:var(--h);font-size:18px;font-weight:500;line-height:20px;
+  text-transform:uppercase;color:var(--black);
+  padding:13px 20px;display:block;
+}
+.site-nav a:hover{color:var(--red)}
+.burger{display:none;background:none;border:0;color:var(--navy-deep);cursor:pointer;padding:8px}
+
+/* ---- hero (measured: 610px, cover, black overlay .5) ---- */
+.hero{
+  position:relative;display:flex;align-items:center;
+  background-position:50% 50%;background-size:cover;background-repeat:no-repeat;
+  padding-top:80px;padding-bottom:150px;
+}
+.hero::before{content:"";position:absolute;inset:0;background:#000;opacity:.5}
+.hero .wrap{position:relative;z-index:2}
+.hero__inner{max-width:869px}
+.hero h1{margin-bottom:20px}
+.hero__subhead{
+  font-family:var(--b);font-size:22px;font-weight:400;line-height:33px;
+  color:var(--white);margin-bottom:20px;
+}
+.hero p{font-size:18px;line-height:27px;color:rgba(255,255,255,.86);max-width:657px}
+.hero__btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
+
+/* ---- badge strip (measured: Roboto 23/600) ---- */
+.badgebar{background:var(--navy);padding:22px 0}
+.badgebar .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.badgebar span{
+  font-family:var(--h);font-size:23px;font-weight:600;line-height:27.6px;
+  color:var(--white);display:inline-flex;align-items:center;gap:12px;
+}
+
+/* ---- cards ---- */
+.cards{display:grid;gap:30px}
+.c2{grid-template-columns:repeat(2,1fr)}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:3px;padding:30px}
+.card h3{margin-bottom:12px}
+.card p{font-size:16px;line-height:24px;color:var(--ink);margin-bottom:0}
+.ico{
+  width:60px;height:60px;border-radius:3px;
+  background:rgba(211,47,47,.1);color:var(--red);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.ico--navy{background:rgba(31,58,104,.1);color:var(--navy-deep)}
+
+/* ---- split ---- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.split img{border-radius:3px}
+.split--flip .split__media{order:2}
+
+/* ---- checklists (measured: Inter 28/400 lh42 on navy "why" rows) ---- */
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.checks.two{grid-template-columns:1fr 1fr}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:18px;line-height:27px}
+.checks .ic{color:var(--red);margin-top:4px}
+.sec--navy .checks li{color:var(--white)}
+.sec--navy .checks .ic{color:var(--white)}
+.whylist li{font-size:28px;line-height:42px}
+
+/* ---- numbered steps ---- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.step{text-align:center}
+.step .n{
+  width:60px;height:60px;border-radius:50%;background:var(--red);color:var(--white);
+  font-family:var(--h);font-weight:700;font-size:28px;line-height:60px;
+  margin:0 auto 20px;
+}
+.step h3{color:var(--white)}
+.step p{font-size:16px;line-height:24px}
+
+/* ---- warranty ---- */
+.warr{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.warr .w{border:1px solid var(--line);border-radius:3px;padding:30px}
+.warr .big{font-family:var(--h);font-weight:700;font-size:50px;line-height:60px;color:var(--red)}
+.warr h3{margin-bottom:0}
+
+/* ---- reviews ---- */
+.rev{background:var(--white);border:1px solid var(--line);border-radius:3px;padding:30px}
+.rev q{display:block;font-size:18px;line-height:27px;color:var(--ink);font-style:normal;margin-bottom:16px}
+.rev cite{font-style:normal;font-family:var(--h);font-weight:600;font-size:18px;color:var(--navy-deep)}
+
+/* ---- pills (problems we fix) ---- */
+.pills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pills span{display:inline-flex;align-items:center;gap:12px;font-size:18px;line-height:27px}
+.pills .ic{color:var(--red)}
+.sec--navy .pills span{color:var(--white)}
+.sec--navy .pills .ic{color:var(--white)}
+
+/* ---- FAQ ---- */
+.faq{max-width:900px;margin:0 auto}
+details.q{border-bottom:1px solid var(--line)}
+details.q summary{
+  list-style:none;cursor:pointer;padding:20px 50px 20px 0;position:relative;
+  font-family:var(--h);font-size:23px;font-weight:600;line-height:27.6px;color:var(--navy-deep);
+}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{
+  content:"+";position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  font-family:var(--b);font-size:30px;font-weight:400;color:var(--red);line-height:1;
+}
+details.q[open] summary::after{content:"\2013"}
+details.q .a{padding:0 0 20px;font-size:16px;line-height:24px;color:var(--ink)}
+
+/* ---- service areas ---- */
+.areas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.areas-grid span{
+  font-family:var(--h);font-size:23px;font-weight:600;line-height:27.6px;
+  color:var(--white);display:flex;align-items:center;gap:10px;
+}
+
+/* ---- request form ---- */
+.formbox{max-width:900px;margin:0 auto}
+.formbox label{display:block;font-family:var(--h);font-size:18px;font-weight:500;color:var(--navy-deep);margin-bottom:8px}
+.formbox input,.formbox select,.formbox textarea{
+  width:100%;padding:14px 16px;border:1px solid #ccc;border-radius:3px;
+  font-family:var(--b);font-size:16px;line-height:24px;color:var(--ink);
+  background:var(--white);margin-bottom:20px;
+}
+.formbox input:focus,.formbox select:focus,.formbox textarea:focus{outline:none;border-color:var(--navy)}
+.formbox textarea{min-height:110px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+
+/* ---- big CTA band ---- */
+.ctaband{background:var(--navy-deep);color:var(--white);text-align:center;padding:50px 0}
+.ctaband h2{color:var(--white)}
+.ctaband p{font-size:22px;line-height:33px;color:var(--white);margin-bottom:24px}
+.bigphone{font-family:var(--h);font-weight:700;font-size:50px;line-height:60px;color:var(--white);display:inline-block}
+
+/* ---- footer ---- */
+.site-footer{background:var(--navy-deep);color:rgba(255,255,255,.86);padding:50px 0 0}
+.site-footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.site-footer h4{color:var(--white);margin-bottom:16px}
+.site-footer p{font-size:16px;line-height:24px;color:rgba(255,255,255,.86)}
+.site-footer a{color:rgba(255,255,255,.86)}
+.site-footer a:hover{color:var(--white)}
+.site-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:16px}
+.site-footer .logo img{width:274px;height:91px;object-fit:contain;margin-bottom:20px;background:#fff;padding:6px;border-radius:3px}
+.fphone{font-family:var(--h);font-weight:700;font-size:28px;color:var(--white)}
+.copy{border-top:1px solid rgba(255,255,255,.2);padding:20px 0;font-size:16px;text-align:center}
+
+/* ---- sticky mobile call bar ---- */
+.mobilebar{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:var(--white);border-top:1px solid var(--line);
+  box-shadow:0 -4px 18px rgba(0,0,0,.14);padding:10px;gap:10px;
+}
+.mobilebar .btn{flex:1;font-size:16px;padding:14px 10px}
+
+/* ---- icon knockout colour per background ---- */
+.sec--navy .ic,.sec--deep .ic,.hero .ic,.badgebar .ic,.step .ic,.ctaband .ic{--knock:var(--navy)}
+.site-footer .ic{--knock:var(--navy-deep)}
+.btn--call .ic{--knock:var(--red)}
+
+/* ==========================================================================
+   RESPONSIVE
+   The live site is built on Elementor's breakpoints (1024 / 767).
+   ========================================================================== */
+@media(max-width:1024px){
+  h1{font-size:52px;line-height:60px}
+  h2{font-size:38px;line-height:46px}
+  h3{font-size:24px;line-height:30px}
+  .hero{min-height:480px}
+  .hero__subhead{font-size:20px;line-height:30px}
+  .c4{grid-template-columns:repeat(2,1fr)}
+  .c3{grid-template-columns:repeat(2,1fr)}
+  .pills{grid-template-columns:repeat(2,1fr)}
+  .areas-grid{grid-template-columns:repeat(3,1fr)}
+  .split{grid-template-columns:1fr;gap:30px}
+  .split--flip .split__media{order:0}
+  .steps{grid-template-columns:1fr}
+  .warr{grid-template-columns:1fr}
+  .site-footer .cols{grid-template-columns:1fr 1fr}
+
+  .site-header{position:relative}
+  .site-header .wrap{padding:16px 0}
+  .site-logo img{width:200px;height:66px}
+  .burger{display:block}
+  .site-nav{display:none}
+  .site-nav.open{
+    display:block;position:absolute;top:100%;left:0;right:0;z-index:50;
+    background:var(--white);border-top:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+  }
+  .site-nav.open ul{flex-direction:column;padding:10px 20px}
+  .site-nav.open li{border-bottom:1px solid var(--line)}
+  .site-nav.open a{padding:14px 0}
+}
+@media(max-width:767px){
+  h1{font-size:36px;line-height:43px}
+  h2{font-size:30px;line-height:38px}
+  h3{font-size:22px;line-height:28px}
+  body{padding-bottom:76px}
+  .hero{min-height:420px;padding-top:40px;padding-bottom:40px}
+  .hero__subhead{font-size:18px;line-height:28px}
+  .hero p{font-size:16px;line-height:24px}
+  .btn{font-size:16px;padding:14px 20px;width:100%}
+  .hero__btns{gap:12px}
+  .c4,.c3,.c2,.pills,.checks.two,.grid2{grid-template-columns:1fr}
+  .areas-grid{grid-template-columns:repeat(2,1fr)}
+  .areas-grid span{font-size:18px;line-height:27px}
+  .badgebar .wrap{flex-direction:column;align-items:flex-start;gap:14px}
+  .badgebar span{font-size:18px;line-height:27px}
+  .whylist li{font-size:20px;line-height:30px}
+  .site-footer .cols{grid-template-columns:1fr}
+  .topbar{height:auto;padding:10px 0}
+  .topbar .wrap{flex-direction:column;align-items:flex-start;gap:6px}
+  .topbar span.areas{font-size:14px}
+  .mobilebar{display:flex}
+  .bigphone{font-size:34px;line-height:42px}
+  .faq summary{font-size:19px;line-height:26px}
+}
+
+
+/* ==========================================================================
+   REFINEMENTS — desktop
+   Brand-locked values (container 1240, type scale, colours, header, hero,
+   80px section padding) are unchanged. What follows tightens the internal
+   spacing the live site never defines, and gives sections visual structure.
+
+   SPACING SCALE (8px base): 4 8 16 24 32 48 64 80 120
+   ========================================================================== */
+:root{
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:80px; --s9:120px;
+}
+
+/* ---- section headings: accent rule + consistent rhythm ---- */
+.sec-head{margin-bottom:var(--s6)}
+.sec-head h2{margin-bottom:var(--s3)}
+.sec-head p{margin-bottom:0;max-width:760px}
+.sec-head.center p{margin-left:auto;margin-right:auto}
+
+/* ---- cards: tighter grid, equal heights, real hover ---- */
+.cards{gap:var(--s4)}
+.card{
+  padding:var(--s5);
+  display:flex;flex-direction:column;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.card h3{margin-bottom:var(--s3)}
+.card p{margin-bottom:0}
+.card:hover{
+  transform:translateY(-3px);
+  border-color:var(--navy);
+  box-shadow:0 10px 30px rgba(16,34,66,.10);
+}
+.card .cardlink{margin-top:auto;padding-top:var(--s4)}
+
+/* ---- icon tile: bigger, bordered, reacts with the card ---- */
+.ico{
+  width:64px;height:64px;border-radius:6px;
+  border:1px solid rgba(31,58,104,.14);
+  background:rgba(31,58,104,.07);color:var(--navy-deep);
+  margin-bottom:var(--s4);
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.ico .ic{font-size:28px}
+.card:hover .ico{background:var(--navy-deep);border-color:var(--navy-deep);color:#fff}
+.ico--red{background:rgba(211,47,47,.08);border-color:rgba(211,47,47,.18);color:var(--red)}
+.card:hover .ico--red{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ---- badge bar: centred with dividers instead of space-between ---- */
+.badgebar{padding:var(--s4) 0}
+.badgebar .wrap{justify-content:center;gap:0}
+.badgebar span{padding:0 var(--s5);position:relative;white-space:nowrap}
+.badgebar span + span::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:28px;background:rgba(255,255,255,.26);
+}
+
+/* ---- steps: connector line through the numbers ---- */
+.steps{position:relative}
+.steps::before{
+  content:"";position:absolute;top:30px;left:16.66%;right:16.66%;height:2px;
+  background:rgba(255,255,255,.22);z-index:0;
+}
+.step{position:relative;z-index:1}
+.step .n{box-shadow:0 0 0 8px var(--navy)}
+.step h3{margin-bottom:var(--s3)}
+
+/* ---- pills: size to content instead of a rigid 4-col grid ---- */
+.pills{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);justify-content:center}
+.pills span{
+  flex:0 1 auto;padding:var(--s3) var(--s4);
+  border:1px solid rgba(255,255,255,.22);border-radius:4px;
+  background:rgba(255,255,255,.05);
+}
+
+/* ---- reviews: quote mark + accent ---- */
+.rev{padding:var(--s5);position:relative;border-top-width:3px}
+.rev .ic-quote{font-size:26px;color:rgba(31,58,104,.18);margin-bottom:var(--s3)}
+.rev q{margin-bottom:var(--s4)}
+
+/* ---- warranty tiles ---- */
+.warr{gap:var(--s4)}
+.warr .w{padding:var(--s5);transition:border-color .18s ease}
+.warr .w:hover{border-color:var(--navy)}
+.warr .big{margin-bottom:var(--s2)}
+
+/* ---- brand strip: replaces four empty boxes ---- */
+.brandstrip{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;
+}
+.brandstrip span{
+  flex:1 1 0;min-width:180px;text-align:center;
+  padding:var(--s5) var(--s4);
+  font-family:var(--h);font-size:24px;font-weight:600;color:var(--navy-deep);
+  border-right:1px solid var(--line);
+}
+.brandstrip span:last-child{border-right:0}
+
+/* ---- split sections ---- */
+.split{gap:var(--s7)}
+.split h2{margin-bottom:var(--s4)}
+.checks{gap:var(--s3)}
+.checks li{align-items:flex-start}
+
+/* ---- CTA hierarchy ---------------------------------------------------
+   Primary  = solid red, the phone call
+   Secondary= outlined navy, the form
+   Tertiary = inline text link with an arrow
+   -------------------------------------------------------------------- */
+.btn--outline{background:transparent;color:var(--navy-deep);border-color:var(--navy-deep)}
+.btn--outline:hover{background:var(--navy-deep);color:#fff}
+.ctarow{display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center}
+.ctarow.center{justify-content:center}
+.ctanote{
+  font-size:15px;line-height:22px;color:#6d7787;margin:var(--s3) 0 0;
+}
+.center .ctanote{text-align:center}
+.sec--navy .ctanote,.ctaband .ctanote{color:rgba(255,255,255,.76)}
+.linkcta{
+  display:inline-flex;align-items:center;gap:var(--s2);
+  font-family:var(--h);font-weight:600;font-size:18px;color:var(--navy-deep);
+}
+.linkcta .ic{font-size:14px;transition:transform .18s ease}
+.linkcta:hover{color:var(--red)}
+.linkcta:hover .ic{transform:translateX(4px)}
+
+/* ---- CTA band ---- */
+.ctaband{padding:var(--s7) 0}
+.ctaband h2{margin-bottom:var(--s3)}
+.ctaband p{margin-bottom:var(--s5)}
+
+/* ---- related services block ---- */
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.related a{
+  display:flex;flex-direction:column;gap:var(--s2);
+  border:1px solid var(--line);border-radius:4px;padding:var(--s5);
+  transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.related a:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 10px 30px rgba(16,34,66,.10)}
+.related .k{
+  font-family:var(--b);font-size:13px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--red);
+}
+.related h3{margin:0;font-size:23px;line-height:28px}
+.related p{margin:0;font-size:16px;line-height:24px;color:var(--ink)}
+
+/* ---- form spacing ---- */
+.formbox input,.formbox select,.formbox textarea{margin-bottom:var(--s4)}
+.formbox label{margin-bottom:var(--s2)}
+.req{color:var(--red)}
+
+/* ---- keyword emphasis in body copy ---- */
+.sec p strong,.checks strong{color:var(--navy-deep);font-weight:600}
+.sec--navy p strong,.sec--navy .checks strong{color:#fff}
+
+/* ---- service-area tiles ---- */
+.areas-grid{gap:var(--s4) var(--s3)}
+
+/* hero CTA micro-copy must not inherit the 18px hero paragraph size */
+.hero .ctanote{font-size:15px;line-height:22px;color:rgba(255,255,255,.72);margin-top:var(--s4)}
+.badgebar + .sec .ctanote{font-size:15px}
+
+/* ---- hero padding -----------------------------------------------------
+   The live site uses 80px top / 150px bottom, but its hero carries less
+   content so the extra bottom padding never reads as empty space. On these
+   pages it left a dead band of photo under the CTA, so the hero is balanced
+   to the section rhythm instead. */
+.hero{padding-top:var(--s8);padding-bottom:var(--s8)}
+.hero .ctanote{margin-top:var(--s4);margin-bottom:0}
+.hero__btns{margin-top:var(--s5)}
+.hero__subhead{margin-bottom:var(--s4)}
+.hero p{margin-bottom:0}
+
+
+/* ==========================================================================
+   HERO WITH LEAD FORM
+   The request form moves out of the page footer and into the hero, filling
+   the empty right-hand side of the photo and capturing the lead above the
+   fold instead of 10 sections down.
+   ========================================================================== */
+.hero--form .wrap{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s7);align-items:center;
+}
+.hero--form .hero__inner{max-width:none}
+.hero--form h1{font-size:58px;line-height:66px}
+.hero--form .hero__subhead{font-size:20px;line-height:30px}
+.hero--form .hero__btns{margin-top:var(--s4)}
+.hero--form .btn{font-size:17px;padding:14px 22px}
+
+.heroform{
+  background:#fff;border-radius:6px;padding:var(--s5);
+  box-shadow:0 18px 50px rgba(6,23,51,.32);
+}
+.heroform h2{
+  font-size:28px;line-height:34px;margin-bottom:var(--s1);color:var(--navy-deep);
+}
+.heroform .sub{font-size:15px;line-height:22px;color:#606b7d;margin-bottom:var(--s4)}
+.heroform label{
+  display:block;font-family:var(--h);font-size:13px;font-weight:600;
+  color:var(--navy-deep);margin-bottom:6px;
+}
+.heroform input,.heroform select,.heroform textarea{
+  width:100%;padding:11px 13px;border:1px solid #D4DBE6;border-radius:4px;
+  font-family:var(--b);font-size:15px;line-height:22px;color:var(--ink);
+  background:#fff;margin-bottom:var(--s3);
+}
+.heroform input:focus,.heroform select:focus,.heroform textarea:focus{
+  outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(31,58,104,.12);
+}
+.heroform textarea{min-height:70px;resize:vertical}
+.heroform .grid2{gap:0 var(--s3)}
+.heroform .btn{width:100%;font-size:18px;padding:14px 20px}
+.heroform .formnote{
+  font-size:13px;line-height:19px;color:#6d7787;text-align:center;margin:var(--s3) 0 0;
+}
+
+/* ==========================================================================
+   WHATSAPP FLOATING BUTTON
+   ========================================================================== */
+.wa-float{
+  position:fixed;right:28px;bottom:28px;z-index:95;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(37,211,102,.45);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.wa-float:hover{transform:scale(1.07);box-shadow:0 10px 28px rgba(37,211,102,.6)}
+.wa-float .ic{font-size:34px;background-color:#fff}
+.wa-float::after{
+  content:attr(data-label);
+  position:absolute;right:72px;top:50%;transform:translateY(-50%);
+  white-space:nowrap;background:var(--navy-deep);color:#fff;
+  font-family:var(--b);font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:4px;opacity:0;pointer-events:none;
+  transition:opacity .18s ease;
+}
+.wa-float:hover::after{opacity:1}
+
+/* ==========================================================================
+   BRANDS WE SERVICE — feature section
+   ========================================================================== */
+.brands{background:var(--navy-deep);color:#fff}
+.brands h2,.brands h3{color:#fff}
+.brands .sec-head p{color:rgba(255,255,255,.86)}
+.brandgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.brandgrid .b{
+  background:#fff;border-radius:6px;padding:var(--s5) var(--s4);
+  text-align:center;transition:transform .18s ease,box-shadow .18s ease;
+}
+.brandgrid .b:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.28)}
+.brandgrid .name{
+  font-family:var(--h);font-size:26px;font-weight:700;line-height:32px;
+  color:var(--navy-deep);letter-spacing:-.01em;
+}
+.brandgrid .meta{
+  font-family:var(--b);font-size:14px;line-height:20px;color:#6d7787;margin-top:6px;
+}
+.brandtrust{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);
+  margin-top:var(--s6);padding-top:var(--s6);
+  border-top:1px solid rgba(255,255,255,.18);
+}
+.brandtrust > div{display:flex;gap:var(--s3);align-items:flex-start}
+.brandtrust > div > div{display:block;min-width:0}
+.brandtrust .ic{font-size:26px;color:#fff;flex:none;margin-top:2px}
+.brandtrust h3{font-size:19px;line-height:25px;font-weight:600;margin:0 0 6px}
+.brandtrust p{font-size:16px;line-height:24px;color:rgba(255,255,255,.86);margin:0}
+
+
+/* ==========================================================================
+   CUSTOM SELECT
+   A native <select> renders its option list with the operating system's own
+   styling, which cannot be themed. The markup keeps a real <select> for
+   accessibility and form submission; JS mirrors it into this styled list.
+   ========================================================================== */
+.selectwrap{position:relative;margin-bottom:var(--s3)}
+.selectwrap select{position:absolute;opacity:0;pointer-events:none;height:0;margin:0}
+.sel-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:11px 13px;border:1px solid #D4DBE6;border-radius:4px;background:#fff;
+  font-family:var(--b);font-size:15px;line-height:22px;color:var(--ink);
+  text-align:left;cursor:pointer;
+}
+.sel-btn:hover{border-color:var(--navy)}
+.sel-btn::after{
+  content:"";width:9px;height:9px;flex:none;margin-right:2px;
+  border-right:2px solid var(--navy-deep);border-bottom:2px solid var(--navy-deep);
+  transform:rotate(45deg) translate(-2px,-2px);transition:transform .18s ease;
+}
+.selectwrap.open .sel-btn{border-color:var(--navy);box-shadow:0 0 0 3px rgba(31,58,104,.12)}
+.selectwrap.open .sel-btn::after{transform:rotate(-135deg) translate(-3px,-3px)}
+.sel-list{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:40;
+  background:#fff;border:1px solid #D4DBE6;border-radius:4px;
+  box-shadow:0 14px 36px rgba(16,34,66,.18);
+  padding:6px;margin:0;list-style:none;max-height:286px;overflow:auto;display:none;
+}
+.selectwrap.open .sel-list{display:block}
+.sel-list li{
+  padding:10px 12px;border-radius:3px;cursor:pointer;
+  font-family:var(--b);font-size:15px;line-height:22px;color:var(--ink);
+}
+.sel-list li:hover{background:rgba(31,58,104,.07);color:var(--navy-deep)}
+.sel-list li[aria-selected="true"]{
+  background:var(--navy-deep);color:#fff;font-weight:500;
+}
+.sel-list::-webkit-scrollbar{width:10px}
+.sel-list::-webkit-scrollbar-thumb{background:#c9d2e0;border-radius:6px;border:3px solid #fff}
+
+
+/* ==========================================================================
+   GOOGLE REVIEWS
+   Rating summary + verbatim reviews from the Google Business Profile.
+   ========================================================================== */
+.ratingcard{
+  display:flex;align-items:center;gap:var(--s4);
+  border:1px solid var(--line);border-radius:6px;padding:var(--s4) var(--s5);
+  background:#fff;box-shadow:0 2px 10px rgba(16,34,66,.06);
+}
+.ratingcard .score{
+  font-family:var(--h);font-size:56px;font-weight:700;line-height:1;color:var(--navy-deep);
+}
+.ratingcard .meta{display:flex;flex-direction:column;gap:4px}
+.stars{display:flex;gap:3px}
+.stars .ic{font-size:18px;background-color:#F5A623}
+.ratingcard .count{font-size:15px;line-height:22px;color:#6d7787}
+.ratingcard .src{
+  font-family:var(--h);font-weight:600;font-size:15px;color:var(--navy-deep);
+}
+
+.reviewcard{
+  border:1px solid var(--line);border-radius:6px;padding:var(--s5);background:#fff;
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.reviewcard:hover{border-color:var(--navy);box-shadow:0 10px 30px rgba(16,34,66,.10);transform:translateY(-3px)}
+.reviewcard .who{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s3)}
+.reviewcard .avatar{
+  width:46px;height:46px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--navy-deep);color:#fff;
+  font-family:var(--h);font-weight:700;font-size:20px;
+}
+.reviewcard .nm{font-family:var(--h);font-weight:600;font-size:18px;line-height:22px;color:var(--navy-deep)}
+.reviewcard .sub{font-size:13px;line-height:19px;color:#6d7787;margin-top:2px}
+.reviewcard .rowtop{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s3)}
+.reviewcard .when{font-size:13px;color:#6d7787}
+.reviewcard p{font-size:16px;line-height:25px;color:var(--ink);margin:0}
+.reviews-cta{text-align:center;margin-top:var(--s6)}
+
+/* brands: tighten hierarchy — icon, then heading over body text */
+.brandtrust{gap:var(--s6)}
+.brandtrust .ic{font-size:24px;opacity:.9}
+.brands .ctanote{color:rgba(255,255,255,.88);font-size:16px;line-height:24px}
+.brands .ctanote a{color:#fff;text-decoration:underline;font-weight:600}
+.brandgrid .name{font-size:24px;line-height:30px}
+
+
+/* ==========================================================================
+   SERVICE AREAS — feature section
+   Cities grouped by the three counties the business actually serves.
+   ========================================================================== */
+.areas{background:var(--navy);color:#fff}
+.areas h2,.areas h3{color:#fff}
+.areas .sec-head p{color:rgba(255,255,255,.86)}
+.countygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.county{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:6px;padding:var(--s5);
+}
+.county h3{
+  font-size:21px;line-height:27px;margin:0 0 var(--s4);
+  padding-bottom:var(--s3);border-bottom:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:center;gap:10px;
+}
+.county h3 .ic{font-size:18px;opacity:.9}
+.county ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.county li{display:flex;align-items:center;gap:10px;font-size:17px;line-height:24px}
+.county li .ic{font-size:14px;color:rgba(255,255,255,.7);flex:none}
+.areas-foot{
+  margin-top:var(--s6);padding-top:var(--s6);
+  border-top:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s5);flex-wrap:wrap;
+}
+.areas-foot p{margin:0;font-size:18px;line-height:27px;color:rgba(255,255,255,.88);max-width:620px}
+.areas-foot strong{color:#fff}
+
+
+/* ==========================================================================
+   PROBLEM GRID
+   Replaces the centred pill wrap. A strict 4x2 grid with left-aligned tiles,
+   a problem-specific icon chip and a hover state. Tiles that map to another
+   page are links, so the block carries internal navigation.
+   ========================================================================== */
+.problemgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.problem{
+  display:flex;align-items:flex-start;gap:var(--s3);
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:6px;padding:var(--s4);color:#fff;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+a.problem:hover{
+  background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.42);
+  transform:translateY(-3px);
+}
+.problem .chip{
+  width:44px;height:44px;border-radius:6px;flex:none;
+  background:rgba(211,47,47,.9);
+  display:flex;align-items:center;justify-content:center;
+}
+.problem .chip .ic{font-size:20px;background-color:#fff}
+.problem .lbl{
+  font-family:var(--h);font-weight:600;font-size:17px;line-height:24px;color:#fff;
+}
+.problem .go{
+  font-family:var(--b);font-size:13px;line-height:19px;
+  color:rgba(255,255,255,.72);margin-top:4px;display:block;
+}
+a.problem:hover .go{color:#fff}
+.problems-foot{
+  margin-top:var(--s6);display:flex;align-items:center;justify-content:center;
+  gap:var(--s4);flex-wrap:wrap;
+}
+.problems-foot .ctanote{margin:0;color:rgba(255,255,255,.82);font-size:16px}
+
+
+/* ==========================================================================
+   REVIEW CAROUSEL
+   Horizontal track with snap points and arrow controls. Three cards visible
+   on desktop; the track is still scrollable by trackpad/touch.
+   ========================================================================== */
+.revbar{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s5);flex-wrap:wrap;margin-bottom:var(--s6);
+}
+.revnav{display:flex;gap:var(--s3)}
+.revnav button{
+  width:52px;height:52px;border-radius:50%;flex:none;
+  border:1px solid var(--line);background:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease,border-color .18s ease,opacity .18s ease;
+}
+.revnav button:hover:not(:disabled){background:var(--navy-deep);border-color:var(--navy-deep)}
+.revnav button:hover:not(:disabled) .ic{background-color:#fff}
+.revnav button:disabled{opacity:.35;cursor:default}
+.revnav .ic{font-size:18px;background-color:var(--navy-deep)}
+.revnav .prev .ic{transform:rotate(180deg)}
+
+.revcar{position:relative}
+.revtrack{
+  display:flex;gap:var(--s4);
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding-bottom:var(--s2);
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.revtrack::-webkit-scrollbar{display:none}
+.revtrack .reviewcard{
+  flex:0 0 calc((100% - (var(--s4) * 2)) / 3);
+  scroll-snap-align:start;
+  display:flex;flex-direction:column;
+}
+.revtrack .reviewcard p{flex:1}
+
+
+/* ==========================================================================
+   REVIEW CAROUSEL v2
+   Restrained header: title left, "see all" link + square arrow controls
+   right. Cards carry avatar, name, date, stars and clamped text with a
+   see-more toggle. Hairline rule and a single centred CTA below.
+   ========================================================================== */
+.sec--reviews{background:var(--bg-soft)}
+.sec--reviews .sec-head{display:none}
+
+.revbar{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s5);flex-wrap:wrap;margin-bottom:var(--s5);
+}
+.revbar h2{
+  font-size:34px;line-height:42px;margin:0;color:var(--navy-deep);
+}
+.revbar .right{display:flex;align-items:center;gap:var(--s4)}
+.seeall{
+  font-family:var(--h);font-weight:600;font-size:17px;color:var(--navy-deep);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.seeall .ic{font-size:14px;transition:transform .18s ease}
+.seeall:hover{color:var(--red)}
+.seeall:hover .ic{transform:translateX(4px)}
+
+.revnav{display:flex;gap:10px}
+.revnav button{
+  width:48px;height:48px;border-radius:4px;flex:none;
+  border:1px solid var(--line);background:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease,border-color .18s ease,opacity .18s ease;
+}
+.revnav .ic{font-size:16px;background-color:var(--navy-deep)}
+.revnav .prev .ic{transform:rotate(180deg)}
+.revnav .next{background:var(--red);border-color:var(--red)}
+.revnav .next .ic{background-color:#fff}
+.revnav .prev:hover:not(:disabled){border-color:var(--navy-deep);background:var(--navy-deep)}
+.revnav .prev:hover:not(:disabled) .ic{background-color:#fff}
+.revnav .next:hover:not(:disabled){background:#b02222;border-color:#b02222}
+.revnav button:disabled{opacity:.35;cursor:default}
+
+.reviewcard{
+  border:1px solid var(--line);border-radius:4px;padding:var(--s5);background:#fff;
+}
+.reviewcard:hover{border-color:#C9D5E6;box-shadow:0 6px 20px rgba(16,34,66,.07);transform:none}
+.reviewcard .who{display:flex;align-items:center;gap:14px;margin-bottom:var(--s3)}
+.reviewcard .avatar{
+  width:44px;height:44px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--navy-deep);color:#fff;
+  font-family:var(--h);font-weight:700;font-size:18px;
+}
+.reviewcard .nm{font-family:var(--h);font-weight:600;font-size:17px;line-height:22px;color:var(--navy-deep)}
+.reviewcard .when{font-size:14px;line-height:20px;color:#7b8694;margin-top:2px;display:block}
+.reviewcard .stars{margin-bottom:var(--s3)}
+.reviewcard .stars .ic{font-size:15px}
+.reviewcard p{
+  font-size:16px;line-height:26px;color:var(--ink);margin:0;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+}
+.reviewcard.open p{-webkit-line-clamp:unset;overflow:visible}
+.seemore{
+  margin-top:var(--s3);background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--h);font-weight:600;font-size:16px;color:var(--navy-deep);
+  text-decoration:underline;text-underline-offset:3px;
+}
+.seemore:hover{color:var(--red)}
+
+.reviews-cta{
+  margin-top:var(--s6);padding-top:var(--s6);
+  border-top:1px solid var(--line);text-align:center;
+}
+
+/* Dark sections: keep emphasised text legible. The base rule paints <strong>
+   navy, which disappears on the navy bands. */
+.sec--navy p strong,.sec--deep p strong,.areas p strong,.brands p strong,
+.ctaband p strong,.sec--navy .checks strong,.areas .checks strong,
+.sec--navy li strong,.areas li strong{color:#fff}
+
+
+/* ==========================================================================
+   WHY CHOOSE
+   Sits directly under the navy badge bar, so it must not also be navy or the
+   two read as one slab. Light band + a 3x2 card grid gives it its own
+   footprint and a scannable structure.
+   ========================================================================== */
+.whychoose{background:var(--bg-soft);border-top:1px solid #E6EBF2;border-bottom:1px solid #E6EBF2}
+.whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.whycard{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:var(--s5);display:flex;align-items:flex-start;gap:var(--s4);
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.whycard:hover{border-color:var(--navy);box-shadow:0 10px 30px rgba(16,34,66,.09);transform:translateY(-3px)}
+.whycard .chip{
+  width:52px;height:52px;border-radius:6px;flex:none;
+  background:rgba(31,58,104,.08);border:1px solid rgba(31,58,104,.14);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease,border-color .18s ease;
+}
+.whycard .chip .ic{font-size:24px;background-color:var(--navy-deep)}
+.whycard:hover .chip{background:var(--navy-deep);border-color:var(--navy-deep)}
+.whycard:hover .chip .ic{background-color:#fff}
+.whycard h3{
+  font-family:var(--h);font-size:19px;line-height:26px;font-weight:600;
+  color:var(--navy-deep);margin:0;
+}
+
+/* ==========================================================================
+   RESPONSIVE PASS — tablet (768–1024) and mobile (≤767)
+   Added after the desktop refinements so these rules win where they overlap.
+   Gutter is 16px on mobile. Layout is checked for horizontal overflow.
+   ========================================================================== */
+img{max-width:100%;height:auto}
+
+/* ---- tablet: 768 to 1024 ---- */
+@media(max-width:1024px){
+  .hero--form .wrap{grid-template-columns:1fr;gap:var(--s6)}
+  .hero--form h1{font-size:52px;line-height:60px}
+  .heroform{width:100%;max-width:640px;margin:0 auto}
+  .whygrid{grid-template-columns:repeat(2,1fr)}
+  .countygrid{grid-template-columns:repeat(2,1fr)}
+  .brandgrid{grid-template-columns:repeat(2,1fr)}
+  .related{grid-template-columns:repeat(2,1fr)}
+  .problemgrid{grid-template-columns:repeat(2,1fr)}
+  .warr{grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+  .warr .big{font-size:40px;line-height:48px}
+  .revtrack .reviewcard{flex:0 0 46%}
+  .steps{grid-template-columns:1fr;gap:var(--s5)}
+}
+
+/* ---- mobile: up to 767 ---- */
+@media(max-width:767px){
+  .sec,.badgebar,.ctaband,.topbar,.site-header,.site-footer,.hero{padding-left:16px;padding-right:16px}
+  .wrap{width:100%}
+
+  .hero--form .wrap{gap:var(--s5)}
+  .hero--form h1{font-size:36px;line-height:43px}
+  .hero--form .hero__subhead{font-size:18px;line-height:28px}
+  .hero--form .btn{font-size:16px;padding:14px 18px}
+  .heroform{padding:var(--s4)}
+  .heroform h2{font-size:24px;line-height:30px}
+
+  .whygrid,.countygrid,.brandgrid,.related,.problemgrid{grid-template-columns:1fr}
+  .warr{grid-template-columns:1fr}
+  .warr .big{font-size:36px;line-height:44px}
+  .cards{gap:var(--s3)}
+  .whycard{padding:var(--s4)}
+
+  .areas-foot{flex-direction:column;align-items:flex-start;gap:var(--s3)}
+  .areas-foot .btn{width:100%}
+  .problems-foot .btn{width:100%}
+
+  .split{gap:var(--s4)}
+  .split img{width:100%;height:auto}
+  .split__media img{width:100%;height:auto}
+
+  .revbar{flex-direction:column;align-items:flex-start;gap:var(--s3)}
+  .revbar h2{font-size:26px;line-height:32px}
+  .revbar .right{flex-wrap:wrap;gap:var(--s3)}
+  .revtrack .reviewcard{flex:0 0 86%}
+
+  .ctaband{padding:var(--s5) 16px}
+  .ctaband h2{font-size:28px;line-height:36px}
+
+  .site-footer .cols{gap:var(--s4)}
+
+  /* keep the WhatsApp button clear of the sticky call bar */
+  .wa-float{bottom:92px;right:16px}
+}
+
+/* ---- very small phones ---- */
+@media(max-width:380px){
+  h1,.hero--form h1{font-size:30px;line-height:36px}
+  .heroform{padding:var(--s3)}
+}
+/* ---- logo sizing: keep the header and footer logos inside the viewport ---- */
+.site-logo img{width:274px;max-width:100%;height:auto}
+.site-footer .logo img{width:274px;max-width:100%;height:auto}
+@media(max-width:1024px){ .site-logo img{width:200px;height:auto} }
+@media(max-width:767px){
+  .site-logo img{width:190px;height:auto}
+  .site-footer .logo img{width:220px}
+}
+/* ---- brand trust points: stack on phones, 3 across on tablets ---- */
+@media(max-width:767px){ .brandtrust{grid-template-columns:1fr;gap:var(--s4)} }
+@media(min-width:768px) and (max-width:1024px){ .brandtrust{grid-template-columns:repeat(3,1fr);gap:var(--s3)} }
+/* ---- phone spacing pass: tighter sections, badge bar in one column, sized photos ---- */
+@media(max-width:767px){
+  .sec{padding-top:48px;padding-bottom:48px}
+  .sec--reviews{padding-top:40px;padding-bottom:24px}
+  .sec-head{margin-bottom:24px}
+  .sec-head h2{margin-bottom:8px}
+  .cards{gap:16px}
+  .split{gap:20px}
+  .split img,.split__media img{width:100%;max-height:240px;object-fit:cover;background:#e9edf3;border-radius:3px}
+  .sec .checks{gap:10px}
+  .problems-foot,.areas-foot{margin-top:24px}
+  .reviews-cta{margin-top:16px}
+  .revbar{margin-bottom:16px}
+  .revbar .right{justify-content:flex-start}
+  .revnav button{width:40px;height:40px}
+  .badgebar{padding:16px 0}
+  .badgebar .wrap{flex-direction:column;align-items:center;gap:10px;justify-content:center}
+  .badgebar span{position:static;padding:0;white-space:normal;font-size:17px;line-height:24px}
+  .badgebar span + span::before{display:none}
+  .ctaband{padding:32px 16px}
+  .step{padding:0}
+  .steps{gap:24px}
+}
+/* ---- phone: badge bar as a 2 x 2 grid, and a compact review section ---- */
+@media(max-width:767px){
+  .badgebar{padding:18px 16px}
+  .badgebar .wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;
+    align-items:center;justify-content:stretch;justify-items:start;
+    max-width:400px;margin:0 auto;
+  }
+  .badgebar span{
+    display:flex;align-items:center;gap:8px;padding:0;
+    white-space:normal;font-size:15px;line-height:20px;text-align:left;
+  }
+  .badgebar span .ic{flex:none;font-size:20px}
+
+  .sec--reviews{padding-top:32px;padding-bottom:28px}
+  .revbar{
+    flex-direction:row;flex-wrap:nowrap;align-items:center;
+    justify-content:space-between;gap:12px;margin-bottom:14px;
+  }
+  .revbar h2{font-size:24px;line-height:30px}
+  .revbar .right{gap:0;flex:none}
+  .revbar .seeall{display:none}
+  .revnav{gap:8px}
+  .revnav button{width:40px;height:40px}
+  .revtrack{gap:12px;padding-bottom:4px}
+  .revtrack .reviewcard{flex:0 0 88%;padding:18px}
+  .reviewcard .who{gap:12px;margin-bottom:10px}
+  .reviewcard .avatar{width:40px;height:40px;font-size:16px}
+  .reviewcard .stars{margin-bottom:10px}
+  .reviewcard p{font-size:15px;line-height:23px}
+  .reviewcard .seemore{margin-top:10px;font-size:15px;align-self:flex-start}
+  .reviews-cta{margin-top:14px;padding-top:0;border-top:0}
+  .reviews-cta .btn{width:100%}
+}
+@media(max-width:767px){
+  .revbar h2{font-size:22px;line-height:28px;white-space:nowrap}
+}
+/* ---- phone: badge bar as a tidy 2 x 2 tile grid, reviews as a single-card slider ---- */
+@media(max-width:767px){
+  .badgebar{padding:4px 16px}
+  .badgebar .wrap{
+    display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:0;
+    max-width:none;margin:0;justify-items:stretch;align-items:stretch;
+  }
+  .badgebar span{
+    flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    gap:6px;padding:14px 8px;font-size:14px;line-height:18px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+  }
+  .badgebar span:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}
+  .badgebar span:nth-child(n+3){border-bottom:0}
+  .badgebar span .ic{font-size:22px}
+
+  .sec--reviews{padding-top:36px;padding-bottom:36px}
+  .sec--reviews .wrap{display:flex;flex-direction:column}
+  .revbar,.revbar .right{display:contents}
+  .revbar h2{order:1;font-size:26px;line-height:32px;white-space:normal;margin:0 0 8px}
+  .revbar .seeall{display:inline-flex;order:2;align-self:flex-start;font-size:16px;margin-bottom:16px}
+  .revcar{order:3}
+  .revtrack{gap:12px}
+  .revtrack .reviewcard{flex:0 0 100%;padding:20px}
+  .reviewcard .avatar{width:48px;height:48px;font-size:18px}
+  .reviewcard .nm{font-size:18px;line-height:24px}
+  .reviewcard p{font-size:16px;line-height:26px}
+  .revnav{order:4;align-self:center;margin-top:16px;gap:10px}
+  .revnav button{width:44px;height:44px}
+  .revnav .next{background:#fff;border-color:var(--line)}
+  .revnav .next .ic{background-color:var(--navy-deep)}
+  .revnav .next:hover:not(:disabled){background:var(--navy-deep);border-color:var(--navy-deep)}
+  .revnav .next:hover:not(:disabled) .ic{background-color:#fff}
+  .reviews-cta{order:5;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
+  .reviews-cta .btn{width:auto;padding:14px 22px}
+}

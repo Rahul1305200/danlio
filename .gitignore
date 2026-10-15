@@ -1,0 +1,7 @@
+.claude/
+CONTENT-SOURCE.md
+_live-text.txt
+_icon-proof.html
+node_modules/
+.DS_Store
+Thumbs.db
